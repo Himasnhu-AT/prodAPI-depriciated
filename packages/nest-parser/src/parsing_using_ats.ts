@@ -8,8 +8,7 @@ import {
 } from "ts-simple-ast";
 
 // Define the root directory of your NestJS project
-const projectRoot =
-  "/Users/himanshu/codes/projects/noterai/apps/server/backend";
+const projectRoot = ""; //? NestJS project root directory
 
 // Function to analyze a single TypeScript file
 function analyzeFile(filePath: string) {
@@ -55,5 +54,5 @@ function extractApiEndpoints(sourceFile: SourceFile) {
 
 // Start the analysis
 analyzeFile(
-  "/Users/himanshu/codes/projects/noterai/apps/server/backend/src/api/auth/auth.controller.ts"
+  "" //? Controller.ts file address
 );
