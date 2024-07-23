@@ -1,0 +1,43 @@
+{
+  "name": "nest-parser",
+  "version": "0.1.0",
+  "description": "Parse NestJS servers to retrieve comprehensive information such as API endpoints, accepted headers, parameters, and return values. This tool simplifies API documentation and enhances developer productivity by providing detailed insights into your NestJS applications.",
+  "main": "dist/index.js",
+  "scripts": {
+    "dev": "ts-node src/index.ts",
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Himasnhu-AT/prodAPI.git"
+  },
+  "keywords": [
+    "NestJS",
+    "parser",
+    "API documentation",
+    "headers",
+    "parameters",
+    "return values",
+    "endpoint analysis",
+    "NestJS tools",
+    "API insights",
+    "developer productivity"
+  ],
+  "author": "himanshu <git:himasnhu-at>",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/Himasnhu-AT/prodAPI/issues"
+  },
+  "homepage": "https://github.com/Himasnhu-AT/prodAPI#readme",
+  "dependencies": {
+    "@nestjs/common": "^10.3.10",
+    "@nestjs/core": "^10.3.10",
+    "@nestjs/platform-express": "^10.3.10",
+    "axios": "^1.7.2",
+    "ts-node": "^10.9.2",
+    "ts-simple-ast": "^21.0.4",
+    "typescript": "^5.5.4"
+  }
+}
