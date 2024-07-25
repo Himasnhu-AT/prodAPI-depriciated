@@ -141,4 +141,11 @@ async function runTests(
   throw new Error("Invalid configuration");
 }
 
-export { runTests, TestResult };
+export {
+  runTests,
+  TestResult,
+  testEndpoint,
+  runStressTest,
+  runLoadTest,
+  runE2ETests,
+};

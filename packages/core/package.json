@@ -26,5 +26,10 @@
   "bugs": {
     "url": "https://github.com/Himasnhu-AT/prodAPI/issues"
   },
-  "homepage": "https://github.com/Himasnhu-AT/prodAPI#readme"
+  "homepage": "https://github.com/Himasnhu-AT/prodAPI#readme",
+  "devDependencies": {
+    "@types/jest": "^29.5.12",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.2.3"
+  }
 }
