@@ -1,0 +1,30 @@
+{
+  "name": "@prodapi/core",
+  "version": "0.1.0",
+  "description": "core repo of prodAPI",
+  "main": "dist/index.js",
+  "scripts": {
+    "dev": "npm run build && npm run start",
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Himasnhu-AT/prodAPI.git"
+  },
+  "keywords": [
+    "api",
+    "test",
+    "load",
+    "test",
+    "stress",
+    "test"
+  ],
+  "author": "himanshu <git:himasnhu-at>",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/Himasnhu-AT/prodAPI/issues"
+  },
+  "homepage": "https://github.com/Himasnhu-AT/prodAPI#readme"
+}

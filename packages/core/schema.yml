@@ -1,0 +1,29 @@
+- EndpointConfig:
+  - name: string # Name of the endpoint
+  - method: string # HTTP method
+  - url: string # URL of the endpoint
+  - header?: string # Header of the endpoint
+  - body?: string # Body of the endpoint
+  - params?: string # Parameters of the endpoint
+  - response:
+    - status: string # Status of the response
+    - body: string # Body of the response
+    - header?: string # Header of the response
+    - cookies?: string # Cookies of the response
+  
+- E2ETestConfig:
+  - name: string # Name of the test
+  - steps: EndpointConfig[] # Endpoints covered
+
+- LoadTest:
+  # increase requests and concurrency slowly to find the breaking point
+  - requests: number # Number of requests
+  - concurrency: number # Number of concurrent requests
+  - endpoint: EndpointConfig # Endpoint to test
+
+- StressTest:
+  # increase requests slowly to see changes in response time and error rate
+  - duration: string # Duration of the test
+  - requests: number # Number of requests
+  - concurrency: number # Number of concurrent requests
+  - endpoint: EndpointConfig # Endpoint to test

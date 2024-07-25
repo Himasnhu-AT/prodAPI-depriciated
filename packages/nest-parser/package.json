@@ -1,5 +1,5 @@
 {
-  "name": "nest-parser",
+  "name": "@prodapi/nest-parser",
   "version": "0.1.0",
   "description": "Parse NestJS servers to retrieve comprehensive information such as API endpoints, accepted headers, parameters, and return values. This tool simplifies API documentation and enhances developer productivity by providing detailed insights into your NestJS applications.",
   "main": "dist/index.js",
