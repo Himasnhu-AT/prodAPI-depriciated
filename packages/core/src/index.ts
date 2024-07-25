@@ -49,10 +49,10 @@ const stressTestConfig: StressTest = {
 };
 
 async function runAllTests() {
-  //   const e2eResults: TestResult[] = await runTests(e2eTestConfig);
-  //   console.log("E2E Test Results:", e2eResults);
-  //   const loadTestResults: TestResult[] = await runTests(loadTestConfig);
-  //   console.log("Load Test Results:", loadTestResults);
+  // const e2eResults: TestResult[] = await runTests(e2eTestConfig);
+  // console.log("E2E Test Results:", e2eResults);
+  // const loadTestResults: TestResult[] = await runTests(loadTestConfig);
+  // console.log("Load Test Results:", loadTestResults);
   const stressTestResults: TestResult[] = await runTests(stressTestConfig);
   console.log("Stress Test Results:", stressTestResults);
 }

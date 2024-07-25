@@ -13,29 +13,39 @@ interface TestResult {
   response?: any;
 }
 
+function handleUndefined<T>(value: T): T | undefined {
+  return value && Object.keys(value).length > 0 ? value : undefined;
+}
+
 async function testEndpoint(
   endpointConfig: EndpointConfig
 ): Promise<TestResult> {
   const requestConfig: RequestInit = {
     method: endpointConfig.method,
-    headers: endpointConfig.header,
-    body: endpointConfig.body ? JSON.stringify(endpointConfig.body) : undefined,
+    headers: handleUndefined(endpointConfig.header),
+    body: endpointConfig.body
+      ? JSON.stringify(handleUndefined(endpointConfig.body))
+      : undefined,
   };
 
   const url = new URL(endpointConfig.url);
   if (endpointConfig.params) {
-    Object.keys(endpointConfig.params).forEach((key) =>
+    Object.keys(handleUndefined(endpointConfig.params) || {}).forEach((key) =>
       url.searchParams.append(key, endpointConfig.params![key])
     );
   }
 
   const start = Date.now();
-  const response = await fetch(url.toString(), requestConfig);
-  console.warn("Response:", response);
   try {
+    const response = await fetch(url.toString(), requestConfig);
     const responseTime = Date.now() - start;
     const success = response.status === endpointConfig.response.status;
-    const responseBody = await response.json();
+    let responseBody;
+    try {
+      responseBody = await response.json();
+    } catch (error) {
+      responseBody = undefined;
+    }
 
     return {
       success,
