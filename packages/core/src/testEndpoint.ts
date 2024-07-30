@@ -47,6 +47,7 @@ async function testEndpoint(
     }
 
     // Apply validation function on the response body
+   
     if (
       endpointConfig.response.body &&
       typeof endpointConfig.response.body === "function"
