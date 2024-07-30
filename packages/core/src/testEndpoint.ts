@@ -4,6 +4,7 @@ import {
   LoadTest,
   StressTest,
 } from "./config.types";
+import { validateConfig } from "./validation";
 
 interface TestResult {
   success: boolean;
@@ -13,13 +14,11 @@ interface TestResult {
   response?: any;
 }
 
-function handleUndefined<T>(value: T): T | undefined {
-  return value && Object.keys(value).length > 0 ? value : undefined;
-}
-
 async function testEndpoint(
   endpointConfig: EndpointConfig
 ): Promise<TestResult> {
+  validateConfig(endpointConfig);
+
   const requestConfig: RequestInit = {
     method: endpointConfig.method,
     headers: handleUndefined(endpointConfig.header),
@@ -47,6 +46,23 @@ async function testEndpoint(
       responseBody = undefined;
     }
 
+    // Apply validation function on the response body
+    if (
+      endpointConfig.response.body &&
+      typeof endpointConfig.response.body === "function"
+    ) {
+      const isValid = endpointConfig.response.body(responseBody);
+      if (!isValid) {
+        return {
+          success: false,
+          status: response.status,
+          responseTime,
+          response: responseBody,
+          error: "Response body validation failed",
+        };
+      }
+    }
+
     return {
       success,
       status: response.status,
@@ -59,6 +75,10 @@ async function testEndpoint(
       error,
     };
   }
+}
+
+function handleUndefined(value: any) {
+  return value !== undefined ? value : {};
 }
 
 async function runE2ETests(testConfig: E2ETestConfig): Promise<TestResult[]> {

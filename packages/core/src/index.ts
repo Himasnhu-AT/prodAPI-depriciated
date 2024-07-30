@@ -1,5 +1,6 @@
 import { E2ETestConfig, LoadTest, StressTest } from "./config.types";
 import { runTests, TestResult } from "./testEndpoint";
+import { isNotNull } from "./validation";
 
 // Example E2E Test Configuration
 const e2eTestConfig: E2ETestConfig = {
@@ -11,7 +12,7 @@ const e2eTestConfig: E2ETestConfig = {
       url: "https://example.com/",
       response: {
         status: 200,
-        body: {},
+        body: isNotNull,
       },
     },
   ],
@@ -49,8 +50,8 @@ const stressTestConfig: StressTest = {
 };
 
 async function runAllTests() {
-  // const e2eResults: TestResult[] = await runTests(e2eTestConfig);
-  // console.log("E2E Test Results:", e2eResults);
+  const e2eResults: TestResult[] = await runTests(e2eTestConfig);
+  console.log("E2E Test Results:", e2eResults);
   // const loadTestResults: TestResult[] = await runTests(loadTestConfig);
   // console.log("Load Test Results:", loadTestResults);
   const stressTestResults: TestResult[] = await runTests(stressTestConfig);
