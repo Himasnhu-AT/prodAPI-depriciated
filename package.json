@@ -1,0 +1,15 @@
+{
+  "name": "prodapi",
+  "version": "1.0.0",
+  "description": "> [!Tip] > Currently the project is in development stage, and is not ready for production use.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "pnpm dev:link && concurrently  \"pnpm dev:server\" \"pnpm dev:prodapi:e2e\"",
+    "dev:server": "cd sample && pnpm start:dev",
+    "test:prodapi:e2e": "cd sample && pnpm test:prodapi:e2e",
+    "dev:link": "echo \"Error: turbo not here, turbo link\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

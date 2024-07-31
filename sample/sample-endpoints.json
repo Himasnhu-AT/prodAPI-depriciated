@@ -1,0 +1,73 @@
+{
+  "endpoints": [
+    {
+      "endpoint": "/",
+      "method": "GET",
+      "description": "Basic GET request to the root endpoint"
+    },
+    {
+      "endpoint": "/require-header",
+      "method": "GET",
+      "description": "GET request with a required header",
+      "headers": {
+        "application/type": "android/json"
+      }
+    },
+    {
+      "endpoint": "/require-body",
+      "method": "POST",
+      "description": "POST request with a required body",
+      "body": {
+        "userName": "JohnDoe",
+        "userId": 123,
+        "status": 201
+      }
+    },
+    {
+      "endpoint": "/require-param/456",
+      "method": "GET",
+      "description": "GET request with a required URL parameter",
+      "params": {
+        "id": 456
+      }
+    },
+    {
+      "endpoint": "/require-query",
+      "method": "GET",
+      "description": "GET request with a required query parameter",
+      "query": {
+        "search": "example"
+      }
+    },
+    {
+      "endpoint": "/require-cookie",
+      "method": "GET",
+      "description": "GET request with a required cookie",
+      "cookies": {
+        "auth": "authToken123"
+      }
+    },
+    {
+      "endpoint": "/require-everything/789",
+      "method": "POST",
+      "description": "POST request with params, headers, query, body, and cookies",
+      "params": {
+        "id": 789
+      },
+      "headers": {
+        "application/type": "web/json"
+      },
+      "query": {
+        "search": "comprehensiveTest"
+      },
+      "body": {
+        "userName": "JaneDoe",
+        "userId": 456,
+        "status": 200
+      },
+      "cookies": {
+        "auth": "authToken456"
+      }
+    }
+  ]
+}
