@@ -42,7 +42,7 @@ export class AppController {
   }
 
   @Get('require-header')
-  requireHeader(@Headers('application/type') application: string): {
+  requireHeader(@Headers('application-type') application: string): {
     message: string;
   } {
     console.log('GET /require-header', { application });
@@ -115,7 +115,7 @@ export class AppController {
   @UsePipes(new ValidationPipe({ whitelist: true }))
   requireEverything(
     @Param('id') id: string,
-    @Headers('application/type') application: string,
+    @Headers('application-type') application: string,
     @Query('search') search: string,
     @Body() body: BodyDto,
     @Req() req: Request,
